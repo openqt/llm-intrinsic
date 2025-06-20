@@ -486,7 +486,7 @@ class LlamaModel(LlamaPreTrainedModel):
 
             # Store layer hidden states for logits computation
             if output_layer_logits:
-                all_layer_logits += (hidden_states,)
+                all_layer_logits += (self.norm(hidden_states),)
 
         hidden_states = self.norm(hidden_states)
 
